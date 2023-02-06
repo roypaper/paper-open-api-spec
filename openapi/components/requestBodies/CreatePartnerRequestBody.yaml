@@ -1,0 +1,73 @@
+type: object
+required: 
+- partner
+properties:
+  partner:
+    type: object
+    description: This object contains data of the partner. For recipient or ship to address, refer to delivery_address
+    required:
+       - id
+       - company_name
+       - company_email
+       - company_phone
+    properties: 
+      id: 
+        type: string
+        example: S.00001
+        description: Identifier of partner. You can input your own partner reference here but there's duplicate constraint.
+        maxLength: 255
+      company_name: 
+        type: string
+        example: PT Pakar Digital Global
+        description: Company name of the partner
+        maxLength: 255
+      company_email: 
+        type: string
+        example: pdg.paper@paper.id
+        description: Email of partner
+        maxLength: 255
+      company_phone: 
+        type: string
+        example: '+622119209102'
+        description: Company phone Number of the partner in E.164 international format
+        maxLength: 255
+      company_address: 
+        type: string
+        example: Jl. Mawar no 12, depok
+        description: Company address
+        maxLength: 255
+      type: 
+        type: string
+        example: Supplier
+        description: It is used to identify the type of partner. It can be filled with `Supplier`, `Customer` or `Both`. If null, then the default type will be `Both`
+        maxLength: 255
+      contact: 
+        type: array
+        description: Contact people of the supplier.
+        required:
+            - name
+        items: 
+          type: object
+          required:
+            - name
+          properties:
+            name: 
+              type: string
+              example: John Doe
+              description: Name of the contact person.
+              maxLength: 255
+            email: 
+              type: string
+              example: john@paper.id
+              description: Email of the contact person.
+              maxLength: 255
+            phone: 
+              type: string
+              example: '+6289123456789'
+              description: Phone number of the contact person in E.164 international format.
+              maxLength: 255
+            position: 
+              type: string
+              example: Product owner
+              description: Position of the contact person.
+              maxLength: 255

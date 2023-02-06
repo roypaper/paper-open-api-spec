@@ -1,0 +1,93 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            number:
+              type: string
+            invoice_date:
+              type: string
+            status:
+              type: string
+            links:
+              type: array
+              items:
+                type: object
+                properties:
+                  ref: 
+                    type: string
+                  href: 
+                    type: string
+                  type: 
+                    type: string
+                  kind: 
+                    type: string   
+        example: 
+          - id: 5ab39a6f-a549-47e6-8391-6120daf8587f
+            number: SI/II/0001
+            invoice_date: 01-10-2022
+            status: paid
+            links:
+              - ref: self
+                href: /sales-invoices/5ab39a6f-a549-47e6-8391-6120daf8587f
+                type: GET 
+                kind: item
+              - ref: self
+                href: /sales-invoices/send/5ab39a6f-a549-47e6-8391-6120daf8587f
+                type: POST 
+                kind: action 
+              - ref: self
+                href: /sales-invoices/pdf/5ab39a6f-a549-47e6-8391-6120daf8587f
+                type: GET  
+                kind: file
+          - id: 0ab39a6f-b549-47e6-8391-6120dbf8587f
+            number: SI/II/0002
+            invoice_date: 02-10-2022
+            status: paid
+            links:
+              - ref: self
+                href: /sales-invoices/0ab39a6f-b549-47e6-8391-6120dbf8587f
+                type: GET 
+                kind: item
+              - ref: self
+                href: /sales-invoices/send/0ab39a6f-b549-47e6-8391-6120dbf8587f
+                type: POST 
+                kind: action 
+              - ref: self
+                href: /sales-invoices/pdf/0ab39a6f-b549-47e6-8391-6120dbf8587f
+                type: GET  
+                kind: file
+  limit: 
+    type: integer
+    example: 25
+  offset:
+    type: integer
+    example: 0
+  total records:
+    type: integer
+    example: 169
+  created_at:
+    type: string
+    example: 2022-09-31T23:59:59+07:00
+  modified_at:
+    type: string
+    example: 2022-09-31T23:59:59+07:00

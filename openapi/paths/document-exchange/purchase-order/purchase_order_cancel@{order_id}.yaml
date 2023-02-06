@@ -1,0 +1,87 @@
+post:
+  tags: 
+    - Purchase Order
+  summary: Cancel Purchase Order
+  description: |
+    Use this API to cancel existing purchase orders. It can only be applied on the “Rejected” or “Not Accepted” status only. 
+    If the document has been accepted from the other side, an error message will mention that this document cannot be canceled, this command can’t be executed. 
+    The canceled transaction will change the status to “Void”. The canceled document can be accessed as view only.
+  
+  operationId: cancelPurchaseOrderById
+  parameters:
+    - name: order_id
+      in: path
+      description: The order_id that needs to be fetched
+      required: true
+      schema:
+        type: string
+    - name: client_id
+      in: header
+      description: The client_id that needs to be fetched
+      required: true
+      schema:
+        type: string
+    - name: client_secret
+      in: header
+      description: The client_secret that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - client_id: []
+    - client_secret: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\components\responses\PurchaseOrder\CancelPurchaseOrderById.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

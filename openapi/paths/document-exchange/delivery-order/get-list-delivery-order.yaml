@@ -1,0 +1,104 @@
+get:
+  tags:
+    - Delivery Order
+  summary: Get List Delivery Order
+  description: |
+    You need to hit this API with given parameters to get list of all the delivery order document in Paper.id.
+
+  operationId: getListDeliveryOrder
+  parameters:
+    - name: partner_name
+      in: query
+      description: To filter based on partner name
+      schema:
+        type: string
+    - name: number
+      in: query
+      description: To filter based on order number
+      schema: 
+        type: string
+    - name: status
+      in: query
+      description: To filter based on status
+      schema: 
+        type: string
+    - name: start_order_date
+      in: query
+      description: It is based on date range. This filter indicate date that is greater than or equal to parameter
+      schema: 
+        type: string
+    - name: end_order_date
+      in: query
+      description: It is based on date range. This filter indicates date less than parameter.
+      schema: 
+        type: string
+    - name: limit
+      in: query
+      description: To indicate how many documents that will be presented on a page
+      schema: 
+        type: string
+    - name: offset
+      in: query
+      description: To indicate where to start the data
+      schema:
+        type: string
+    
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\..\components\responses\delivery-order\get-list-delivery-order.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

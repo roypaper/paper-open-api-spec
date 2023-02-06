@@ -1,0 +1,292 @@
+type: object
+required:
+- order_date
+- number
+- supplier
+- items
+- additional_info
+- total
+- delivery_address
+- delivery_contact
+- expiry_time
+properties: 
+  order_date: 
+    type: string
+    description: Date of Purchase Order document in format YYYY-MM-DD
+    example: '2022-09-01'
+  number: 
+    type: string
+    example: PO/VI/0001
+    description: Number of document order.
+    maxLength: 255
+  supplier:
+    type: object
+    description: This object contains data of the supplier. For recipient or ship to address, refer to delivery_address
+    required:
+       - id
+       - company_name
+       - company_phone
+       - company_email
+       - company_address
+    properties: 
+      id: 
+        type: string
+        example: S.00001
+        description: Identifier of customer. You can input your own Customer reference here but there's duplicate constraint.
+        maxLength: 255
+      company_name: 
+        type: string
+        example: PT Pakar Digital Global
+        description: Company name of the supplier.
+        maxLength: 255
+      company_email: 
+        type: string
+        example: pdg.paper@paper.id
+        description: Email of supplier.
+        maxLength: 255
+      company_phone: 
+        type: string
+        example: '+622119209102'
+        description: Company phone Number of the supplier in E.164 international format.
+        maxLength: 255
+      company_address: 
+        type: string
+        example: Jl. Rawa Bebek RT 004/RW 001 No.44 A
+        description: Company address
+        maxLength: 255
+      contact: 
+        type: array
+        description: Contact people of the supplier.
+        required:
+            - name
+        items: 
+          type: object
+          required:
+            - name
+          properties:
+            name: 
+              type: string
+              example: John Doe
+              description: Name of the contact person.
+              maxLength: 255
+            email: 
+              type: string
+              example: john@paper.id
+              description: Email of the contact person.
+              maxLength: 255
+            phone: 
+              type: string
+              example: '+6289123456789'
+              description: Phone number of the contact person in E.164 international format.
+              maxLength: 255
+            position: 
+              type: string
+              example: Product owner
+              description: Position of the contact person.
+              maxLength: 255
+  items:
+    type: array
+    description: This object contains array object.
+    items: 
+      type: object
+      required:
+      - name
+      - description
+      - quantity
+      - uom
+      - price
+      properties: 
+        name: 
+          type: string
+          example: AC LG
+          description: Name of item.
+          maxLength: 255
+        code: 
+          type: string
+          example: SKU0001
+          description: Product code of item that will reference the Product master list in Paper.id.
+          maxLength: 255
+        description: 
+          type: string
+          example: Ductless, Mini-Split Air Conditioner.
+          description: Description of item.
+          maxLength: 255
+        quantity: 
+          type: number
+          example: 1
+          description: Quantity of item.
+        uom: 
+          type: string
+          example: pcs
+          description: |
+            Code for UOM.
+            Note: should be registered in Paper.id system
+          maxLength: 255
+        discount: 
+          type: number
+          example: 0
+          description: Discount of item that will be converted to percentage, e.g. 20 will be calculated as 20% discount.
+        price: 
+          type: number
+          example: 1000000
+          description: Price of item.
+        tax: 
+          type: object
+          description: This object contains tax information for the item.
+          required: 
+            - tax_amount
+            - tax_name
+          properties: 
+            tax_amount: 
+              type: number
+              example: 110000
+            tax_name: 
+              type: string
+              example: PPN 11%
+              description: Tax of item that will be converted to percentage, e.g. 10 will be calculated as 10%.
+              maxLength: 255
+        additional_info:
+          description: Additional information or custom fields to fit your business case in the items level.
+          required: 
+            - discount_tier
+            - batch_no
+          properties: 
+            discount_tier: 
+              type: string
+              example: 1
+              description: Discount tier.
+            batch_no: 
+              type: string
+              example: MFG0580
+              description: Batch number.
+          type: object
+  additional_fee:
+    type: object
+    description: The amount of additional fee. The name can be configured as requested and will treat as ‘other cost’.
+    properties: 
+      delivery_fee:
+        type: number
+        example: 20000
+        description: The amount of delivery fee that might occur on goods delivery process.
+  total: 
+    type: number
+    example: 7060000
+    description: Total amount of the invoice, up to 2 decimal point.
+    maxLength: 255
+  incoterm: 
+    type: string
+    example: FOB
+    description: Incoterm of the order, only valid values of incoterms can be inputted.
+    maxLength: 255
+  notes: 
+    type: string
+    example: The order is valid if two parties had agreed
+    description: Notes of the order.
+  delivery_date: 
+    type: string
+    example: '2022-09-30'
+    description: Date of delivery in format YYYY-MM-DD
+    maxLength: 255
+  delivery_address: 
+    type: object
+    description: This object contains the delivery address.
+    maxLength: 255
+    required:
+      - address
+      - city
+      - state
+    properties:
+      address: 
+        type: string
+        example: Jl. Sunter Garden Raya 5D
+      city: 
+        type: string
+        example: Jakarta Utara
+      state: 
+        type: string
+        example: DKI Jakarta
+      country: 
+        type: string
+        example: Indonesia
+      zip_code: 
+        type: number
+        example: 14350
+      location: 
+        type: object
+        description: This object contains the coordinate of the delivery location.
+        required: 
+          - latitude
+          - longitude
+        properties: 
+          latitude: 
+            type: number
+            example: 6.136912345
+            description: Latitude of the location, up to 6 decimal places is accepted.
+          longitude: 
+            type: number
+            example: 106.8487123545
+            description: Longitude of the location, up to 6 decimal places is accepted.
+  delivery_contact:
+    description: This object contains the contact details of the goods recipient.
+    required:
+      - name
+    properties: 
+      name: 
+        type: string
+        example: John
+        description: Name of the contact person.
+        maxLength: 255
+      email: 
+        type: string
+        example: john.doe@gmail.com
+        description: Email of the contact person.
+        maxLength: 255
+      phone: 
+        type: string
+        example: '+6282117679137'
+        description: Phone of the contact person.
+        maxLength: 255
+    type: object
+  signature_text_header: 
+    type: string
+    example: 29 Jun, 2022
+    description: Signature text header of document.
+    maxLength: 255
+  signature_text_footer: 
+    type: string
+    example: Jhon doe
+    description: Signature text footer of document.
+    maxLength: 255
+  send:
+    type: object
+    description: Parameters to send the Purchase Order document to the `supplier` and `supplier.contact` details.
+    properties: 
+      email: 
+        type: boolean
+        example: true
+        description: Sending email method.
+      whatsapp: 
+        type: boolean
+        example: true
+        description: Sending whatsapp method.
+      sms: 
+        type: boolean
+        example: true
+        description: Sending sms method.
+  expiry_time: 
+    type: string
+    example: '2022-10-31 23:59:59'
+    description: |
+      Time when the Purchase Order will automatically expire and cannot be accepted.
+      
+      Format is regulated based on ISO 8601 : `YYYY-MM-DDThh:mm:ss±hh:mm`
+  additional_info: 
+    type: object
+    description: Additional information or custom fields that fit your business case.
+    properties: 
+      project: 
+        type: string
+        example: Stadium GBK
+      branch: 
+        type: string
+        example: Sunter

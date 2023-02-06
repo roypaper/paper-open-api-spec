@@ -1,0 +1,60 @@
+type: object
+properties: 
+  status_code:
+    type: integer
+    example: 200
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+        example: S.00001
+      company_name:
+        type: string
+        example: PT Pakar Digital Global
+      company_email:
+        type: string
+        example: pdg.paper@paper.id
+      company_phone:
+        type: string
+        example: +622119209102
+      type:
+        type: string
+        example: Supplier
+      contact: 
+        type: array
+        description: Contact people of the supplier.
+        items: 
+          type: object
+          required:
+            - name
+          properties:
+            name: 
+              type: string
+              description: Name of the contact person.
+              maxLength: 255
+              example: John Doe
+            email: 
+              type: string
+              description: Email of the contact person.
+              maxLength: 255
+              example: john@paper.id
+            phone: 
+              type: string
+              description: Phone number of the contact person in E.164 international format.
+              maxLength: 255
+              example: '+6289123456789'
+            position:
+              type: string
+              description: Position of the contact person within the company/organization
+              maxLength: 255
+              example: product owner
+  meta:
+    type: object
+    properties: 
+      created_at:
+        type: string
+        example: 2022-09-31T23:59:59+07:00
+      modified_at:
+        type: string
+        example: 2022-09-31T23:59:59+07:00

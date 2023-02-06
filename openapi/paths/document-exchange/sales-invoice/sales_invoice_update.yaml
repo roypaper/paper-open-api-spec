@@ -1,0 +1,84 @@
+post:
+  tags:
+    - Sales Invoice
+  summary: Update Sales Invoice
+  description: |
+    You can use this API to update previously created sales invoices. Updating the purchase order will change the content of the order.
+
+    **IMPORTANT**
+    Changing the content of the order won’t be reflected on your partner until you resend the document once again. It is highly advised to trigger sending new documents after the change.
+    In addition, changing the supplier will also trigger cancellation of your previous purchase order that has been received by the previous supplier.
+  operationId: updateSalesInvoiceById
+  parameters:
+    - name: invoice_id
+      in: path
+      description: The id that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/requestBodies/UpdateSalesInvoiceRequestBody.yaml
+    description: Updated purchase order object
+    required: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/PurchaseOrder/CreateOrUpdatePurchaseOrder.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

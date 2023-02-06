@@ -1,0 +1,36 @@
+type: object
+properties: 
+  status_code:
+    type: integer
+    example: 200
+  data:
+    type: object
+    properties: 
+      id:
+        type: string
+        example: 5ab39a6f-a549-47e6-8391-6120daf8587f
+      number:
+        type: string
+        example: DO/VI/0001
+  links:
+    type: array
+    items: 
+      type: object
+      properties: 
+        ref:
+          type: string
+        href:
+          type: string
+        type:
+          type: string
+        kind:
+          type: string
+      example: 
+        - ref: self
+          href: /delivery-orders/5ab39a6f-a549-47e6-8391-6120daf8587f
+          type: GET
+          kind: item
+        - ref: self
+          href: /delivery-orders/send/5ab39a6f-a549-47e6-8391-6120daf8587f
+          type: POST
+          kind: action

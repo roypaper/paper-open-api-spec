@@ -1,0 +1,45 @@
+type: object
+properties:
+  email:
+    type: object
+    required: 
+      -  to
+    properties: 
+      to:
+        type: array
+        description: It should be inputted with email
+        items: 
+          type: string
+          example: yourcompanyemail@paper.id
+          maxLength: 255
+      cc:
+        type: array
+        description: It should be inputted with email. 
+        items: 
+          type: string
+          example: partnercompanyemail@paper.id 
+          maxLength: 255
+  whatsapp:
+    type: array
+    description: Sending message 
+    items: 
+      type: object
+      properties: 
+        number:
+          type: string
+          maxLength: 255
+    example: 
+      - number: "085157815521" 
+      - number: "0813456789"
+  sms:
+    type: array
+    items: 
+      type: object
+      properties: 
+        number:
+          type: string
+          maxLength: 255
+    example: 
+      - number: "085157815521"
+      - number: "0813456789"
+    

@@ -1,0 +1,199 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      id:
+        type: string
+        example: 2b8544b2-2b85-41ba-915c-4f1f97a5b5c2
+      number:
+        type: string
+        example: RAIDENT/SEPT/PO/23
+      order_date: 
+        type: string
+        description: tanggal pembuatan purchase order
+        example: 2022-09-01
+      supplier:
+        type: object
+        properties: 
+          id: 
+            type: string
+            example: 502d76bd-0e94-4a09-b130-cbafc21eaa0f
+          company_name: 
+            type: string
+            example: PT. Maju Mundur
+          company_email: 
+            type: string
+            example: harunwols@gmail.com
+          company_phone: 
+            type: string
+            example: '085891824623'
+          company_address: 
+            type: string
+            example: Jl. Rawa Bebek RT 004/RW 001 No.44 A
+          company_number:
+            type: string
+            example: JMITRA0002
+          href:
+            type: string
+            example: /api/v1/partners/502d76bd-0e94-4a09-b130-cbafc21eaa0f
+          contact: 
+            type: array
+            items: 
+              type: object
+              properties:
+                name: 
+                  type: string
+                  example: harun
+                email: 
+                  type: string
+                  example: xxxxxx@paper.id
+                phone: 
+                  type: string
+                  example: 0858XXXXXXXX
+                position: 
+                  type: string
+                  example: Project Manager
+      items: 
+        type: array
+        items: 
+          type: object
+          properties: 
+            name: 
+              type: string
+              example: Pompa Beton NB Standard
+            code: 
+              type: string
+              example: SKU0001
+            description: 
+              type: string
+              example: Termasuk PPN 11%. Biaya pengiriman dihitung saat checkout.
+            quantity: 
+              type: number
+              example: 1
+            uom: 
+              type: string
+              example: PIEC
+            discount: 
+              type: number
+              example: 0
+            price: 
+              type: number
+              example: 150000
+            tax: 
+              type: object
+              properties: 
+                tax_amount: 
+                  type: number
+                  example: 1000
+                tax_name: 
+                  type: string
+                  example: PPN 10% EXCLUSIVE
+            product_href:
+              type: string
+              example: /api/v1/products/b2ebddec-af6d-49c3-b043-c1487046d176
+            additional_info: 
+              properties: 
+                batch_no: 
+                  type: string
+                  example: MFG0580
+                discount_tier: 
+                  type: string
+                  example: 1
+              type: object
+      additional_fee:
+        type: object
+        properties: 
+          delivery_fee:
+            type: number
+            example: 2000
+      status: 
+        type: string
+        example: confirmed
+      total: 
+        type: number
+        example: 23000
+      incoterm: 
+        type: string
+        example: FOB
+      notes: 
+        type: string
+        example: The order is valid if two parties had agreed
+      delivery_date: 
+        type: string
+        example: 2022-09-21
+      delivery_address: 
+        properties: 
+          address: 
+            type: string
+            example: Jl. Sunter Garden Raya 5D
+          city: 
+            type: string
+            example: Jakarta Utara
+          state: 
+            type: string
+            example: DKI Jakarta
+          country: 
+            type: string
+            example: Indonesia
+          zip_code: 
+            type: string
+            example: 14350
+          location: 
+            properties: 
+              latitude: 
+                type: number
+                example: 6.136912345
+              longitude: 
+                type: number
+                example: 106.8487123545
+            type: object
+        type: object
+      delivery_contact: 
+        properties: 
+          name: 
+            type: string
+            example: John
+          email: 
+            type: string
+            example: john.doe@gmail.com
+          phone: 
+            type: string
+            example: '+6282117679137'
+        type: object
+      signature_text_header: 
+        type: string
+        example: 30 Agustus, 2022
+      signature_text_footer: 
+        type: string
+        example: Harun Nur Rasyid
+      expiry_time: 
+        type: string
+        example: 2022-10-31T23:59:59+07:00
+      additional_info: 
+        properties: 
+          project: 
+            type: string
+            example: Stadium GBK
+          branch: 
+            type: string
+            example: Sunter
+        type: object
+      created_at:
+        type: string 
+        example: 2022-09-15T23:11:37+07:00
+      modified_at:
+        type: string
+        example: 2022-09-22T23:20:51+07:00

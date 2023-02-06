@@ -1,0 +1,86 @@
+get:
+    tags:
+      - Purchase Order
+    summary: Get Purchase Order List
+    description: You need to hit this API with given parameters to get information about the purchase order document in Paper.id.
+    operationId: getPurchaseOrderAll
+    parameters:
+      - name: status
+        in: query
+        description: Filter Purchase Order by Status
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: Select Batch of Response
+        schema:
+          type: number
+      - name: start_order_date
+        in: query
+        description: Filter Purchase Order by Order Date
+        schema:
+          type: string
+      - name: end_order_date
+        in: query
+        description: Filter Purchase Order by Order Date
+        schema:
+          type: string
+    security:
+      - client_id: []
+      - client_secret: []
+      - company_id: []
+    responses:
+      '200':
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/PurchaseOrder/GetAllPurchaseOrders.yaml
+      '400':
+        description: Bad Request
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 400
+              response_code: "80001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '403':
+        description: Forbidden
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 403
+              response_code: "70001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '404':
+        description: Not Found
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 404
+              response_code: "60001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '500':
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 500
+              response_code: "50001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"

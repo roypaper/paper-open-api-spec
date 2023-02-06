@@ -1,0 +1,72 @@
+post:
+  tags:
+    - Sales Invoice
+  summary: Create and Send Sales Invoice
+  description: You need to hit this API with given parameters to create a sales invoice document in Paper.id. Once an Invoice is created, it automatically generates a PDF and a Single Invoice link + Payment URL.
+  operationId: postSalesInvoice
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/requestBodies/CreateSalesInvoiceRequestBody.yaml
+    description: Create and Send Sales Invoice
+    required: true
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/SalesInvoice/CreateSalesInvoice.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

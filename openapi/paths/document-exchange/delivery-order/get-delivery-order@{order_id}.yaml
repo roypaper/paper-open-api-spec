@@ -1,0 +1,88 @@
+get:
+  tags:
+    - Delivery Order
+  summary: Get Delivery Order
+  description: |
+    You need to hit this API with given parameters to get information about the delivery order document in Paper.id.
+
+
+    **Document status**
+
+    A Delivery Order contains document status which indicates the activity that has been implemented to the document. The status will be visible to both creator and receiver of the document. 
+    If an order has been modified/edited, the status of the document will be changed to confirm as the Paper.id system treats the modified information as a new version of the order. 
+    Please refer to the table below for delivery order document status:
+
+    | Document Status | Description                       |
+    |-----------|-----------------------------------------|
+    | Confirmed | The order has been successfully created in the Paper.id system, but not yet sent to the partner.  |
+    | Sent      | The order has been successfully created in the Paper.id system and has been sent to the partner. The creator of the order is still waiting for the acceptance or rejection from the receiver of the order.  |
+    | Accepted  | The order has been accepted by the receiver of the order.   |
+    | Rejected  | The order has been rejected by the receiver of the order.   |
+    | Void      | The order has been deleted by the creator of the order.     |
+  operationId: getDeliveryOrder
+  parameters:
+  - name: order_id
+    in: path
+    description: The id that needs to be fetched
+    required: true
+    schema:
+      type: string
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses: 
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\..\components\responses\delivery-order\get-delivery-order.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

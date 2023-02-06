@@ -1,0 +1,10 @@
+type: object
+properties:
+  username:
+    $ref: ./UserName.yaml
+  firstName:
+    $ref: ./FirstName.yaml
+  lastName:
+    $ref: ./LastName.yaml
+  email:
+    $ref: ./Email.yaml

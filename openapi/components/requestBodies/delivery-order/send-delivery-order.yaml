@@ -1,0 +1,41 @@
+type: object
+properties:
+  email:
+    type: object
+    properties: 
+      to:
+        type: array
+        items: 
+          type: array
+          example: yourcompanyemail@paper.id
+      cc:
+        type: array
+        items: 
+          type: array
+          example: partnercompanyemail@paper.id
+  whatsapp:
+    type: array
+    items: 
+      properties: 
+        country_code:
+          type: string
+        number:
+          type: string
+      example: 
+        - country_code: '62'
+          number: '085157815521'
+        - country_code: '62'
+          number: '085157815232'
+  sms: 
+    type: array
+    items: 
+      properties: 
+        country_code:
+          type: string
+        number:
+          type: string
+      example: 
+        - country_code: '62'
+          number: '085157815521'
+        - country_code: '62'
+          number: '085157815232'

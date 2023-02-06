@@ -1,0 +1,80 @@
+type: object
+properties: 
+  message: 
+    type: string
+    example: User has been Registered
+  status:
+    type: integer
+    example: 200
+  user: 
+    type: object
+    properties: 
+      company_id:
+        type: string
+        example: 8e482eb9-5d79-4e05-bf29-2f5bc58bb035
+      created_at:
+        type: string
+        example: '2021-01-01T11:59:59.000Z'
+      email:
+        type: string
+        example: user123@paper.id
+      emailVerified:
+        type: string
+        example: ''
+      has_onboarding:
+        type: boolean
+        example: false
+      is_creator:
+        type: boolean
+        example: true
+      lastname:
+        type: string
+        example: doe
+      login_attempt:
+        type: null
+        example: ''
+      login_limit_timestamp:
+        type: null
+        example: ''
+      name:
+        type: string
+        example: john
+      paper_chain_popup:
+        type: null
+        example: ''
+      password:
+        type: string
+        example: "$2b$10$VBCxD/f6/olzJw4.wZ0Js.ezRuN/IhRMqDBSd9.dytyYD0Q8BBM7O"
+      people_type:
+        type: boolean
+        example: false
+      phone:
+        type: string
+        example: ''
+      photo:
+        type: string
+        example: ''
+      plain_password: 
+        type: null
+        example: ''
+      realm:
+        type: null
+        example: ''
+      registered_by:
+        type: string
+        example: alfiansyahad2
+      remember_token:
+        type: null
+        example: ''
+      updated_at:
+        type: string
+        example: '2021-01-01T11:59:59.000Z'
+      username:
+        type: string
+        example: ''
+      uuid:
+        type: string
+        example: 6a358f0c-adfe-478d-8c21-086eff7d14a3
+      verficationToken:
+        type: string
+        example: s9qk9pfjc27d12p3j2hfxk6hp5l28w5ikoizvp3njlf7rzeucpt

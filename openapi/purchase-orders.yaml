@@ -1,0 +1,43 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: PAPER ID - OPEN API - Tools V1
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://fintech.id/storage/files/shares/logo/logofi2/paperid.png'
+externalDocs:
+  description: Please registry here first if you don't have access
+  url: 'https://paper.id/webappv1/#/login?entry_point=landing-page'
+tags:
+  - name: Purchase Order
+    description: 
+      $ref: '../developer-portal/openapi-purchase-order.md'
+servers:
+  - url: 'https://open-api.devel.paper.id/api/v1'
+paths:
+  '/purchase-orders/all':
+    $ref: paths/document-exchange/purchase-order/purchase_order_all.yaml
+  '/purchase-orders':
+    $ref: paths/document-exchange/purchase-order/purchase_orders.yaml
+  '/purchase-orders/{order_id}':
+    $ref: paths/document-exchange/purchase-order/purchase_orders_update@{order_id}.yaml
+  '/purchase-orders/send-all/{order_id}':
+    $ref: paths/document-exchange/purchase-order/purchase_order@{order_id}.yaml
+  # '/purchase-orders/purchase-order/cancel/{order_id}':
+  #   $ref: paths\purchase-order\purchase_order_cancel@{order_id}.yaml
+components:
+  securitySchemes:
+    client_id:
+      type: apiKey
+      in: header
+      name: client_id
+    client_secret:
+      type: apiKey
+      in: header
+      name: client_secret
+    company_id:
+      type: apiKey
+      in: header
+      name: company_id

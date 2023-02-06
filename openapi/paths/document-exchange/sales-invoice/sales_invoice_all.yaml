@@ -1,0 +1,106 @@
+get:
+  tags:
+    - Sales Invoice
+  summary: Get List of Sales Invoice
+  description: All the sales invoice that has been created in Paper.id can be retrieved through API integration. To filter the information that is needed, you can put some parameters as well.
+  operationId: getSalesInvoiceList
+  parameters:
+    - name: partner_name
+      in: query
+      description: To filter based on partner name
+      schema:
+        type: string
+    - name: number
+      in: query
+      description: To filter based on order number
+      schema:
+        type: string
+    - name: status
+      in: query
+      description: Filter Purchase Order by Status
+      schema:
+        type: string
+    - name: offset
+      in: query
+      description: To indicate “first” page that will be skipped
+      schema:
+        type: string
+    - name: start_date
+      in: query
+      description: Filter Purchase Order by Order Date
+      schema:
+        type: string
+    - name: end_date
+      in: query
+      description: Filter Purchase Order by Order Date
+      schema:
+        type: string
+    - name: limit
+      in: query
+      description: To indicate how many documents that will be presented on a page
+      schema:
+        type: string
+    - name: pagination
+      in: query
+      description: To show how many page that will be shown
+      schema:
+        type: string
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\..\components\responses\SalesInvoice\GetSalesInvoiceList.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

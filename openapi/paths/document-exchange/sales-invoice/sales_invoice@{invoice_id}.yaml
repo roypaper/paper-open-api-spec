@@ -1,0 +1,72 @@
+get:
+    tags:
+      - Sales Invoice
+    summary: Get Sales Invoice
+    description: All the sales invoice that has been created in Paper.id can be retrieved through API integration. To filter the information that is needed, you can put some parameters as well.
+    operationId: getSalesInvoice
+    parameters:
+    - name: invoice_id
+      in: path
+      description: The invoice ID that needs to be fetched
+      required: true
+      schema:
+        type: string
+    security:
+      - client_id: []
+      - client_secret: []
+      - company_id: []
+    responses:
+      '200':
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/SalesInvoice/GetSalesInvoice.yaml
+      '400':
+        description: Bad Request
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 400
+              response_code: "80001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '403':
+        description: Forbidden
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 403
+              response_code: "70001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '404':
+        description: Not Found
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 404
+              response_code: "60001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '500':
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              $ref: ../../../components/responses/General.yaml
+            example: 
+              status_code: 500
+              response_code: "50001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"

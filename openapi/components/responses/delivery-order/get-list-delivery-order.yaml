@@ -1,0 +1,55 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: '0000'
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      items: 
+        type: array
+        items: 
+          properties: 
+            id: 
+              type: string
+              example: 48c8a981-6477-42d1-b86b-11d20b394959
+            number: 
+              type: string
+              example: DO/VI/0005
+            links: 
+                properties: 
+                  ref:
+                    type: string
+                  href:
+                    type: string
+                  type:
+                    type: string
+                  kind:
+                    type: string
+                example: 
+                  - ref: self
+                    href: /delivery-orders/5ab39a6f-a549-47e6-8391-6120daf8587f
+                    type: GET
+                    kind: item
+                  - ref: self
+                    href: /delivery-orders/send/5ab39a6f-a549-47e6-8391-6120daf8587f
+                    type: POST
+                    kind: action
+  limit: 
+    type: integer
+    example: 1
+  offset: 
+    type: integer
+    example: 1
+  total_record: 
+    type: integer
+    example: 70

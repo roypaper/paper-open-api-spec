@@ -1,0 +1,14 @@
+{
+  "name": "paper-openapi",
+  "version": "1.0.0",
+  "dependencies": {
+    "@redocly/developer-portal": "1.1.0-beta.118"
+  },
+  "private": true,
+  "scripts": {
+    "start": "redocly-portal develop -p 3000",
+    "build": "redocly-portal build -o dist",
+    "test": "openapi lint",
+    "clean": "redocly-portal clean"
+  }
+}

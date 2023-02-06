@@ -1,0 +1,73 @@
+post:
+  tags:
+    - Partner
+  summary: Create a new partner
+  description: |
+    A user can register a partner that acts as a business partner (supplier and/or customer). A partner will be notified when a payment is made to or requested to them. Also, a document can be sent to the registered partner. 
+  operationId: createPartner
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ..\..\components\requestBodies\CreatePartnerRequestBody.yaml
+    description: Created partner object
+    required: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\components\responses\Partners\CreatePartnerResponse.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

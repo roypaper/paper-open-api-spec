@@ -1,0 +1,14 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success

@@ -1,0 +1,35 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: PAPER ID - OPEN API - Tools V1
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://fintech.id/storage/files/shares/logo/logofi2/paperid.png'
+externalDocs:
+  description: Please registry here first if you don't have access
+  url: 'https://paper.id/webappv1/#/login?entry_point=landing-page'
+servers:
+  - url: 'https://open-api.devel.paper.id/api/v1'
+tags: 
+  - name: Partner
+    description:
+      $ref: '../developer-portal/openapi-partner.md'
+paths:
+  '/partners/all':
+    $ref: paths/partners/partners_all.yaml
+components:
+  securitySchemes:
+    client_id:
+      type: apiKey
+      in: header
+      name: client_id
+    client_secret:
+      type: apiKey
+      in: header
+      name: client_secret
+    company_id:
+      type: apiKey
+      in: header
+      name: company_id

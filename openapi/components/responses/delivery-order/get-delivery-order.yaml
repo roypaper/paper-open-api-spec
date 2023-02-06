@@ -1,0 +1,202 @@
+type: object
+properties:
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+        example: '5ab39a6f-a549-47e6-8391-6120daf8587f'
+      number:
+        type: string
+        example: 'DO/VI/0001'
+      status:
+        type: string
+        example: 'accepted'
+      order_date: 
+        type: string
+        example: '2022-06-29'
+      partner:
+        type: object
+        properties: 
+          id:
+            type: string
+            example: 'C.00001'
+          company_name: 
+            type: string
+            example: John Doe
+          company_email:
+            type: string
+            example: john@acmecorp.com
+          company_phone:
+            type: string
+            example: '6289123456789'
+          contact: 
+            type: array
+            description: Contact people of the supplier.
+            items: 
+              type: object
+              required:
+                - name
+              properties:
+                name: 
+                  type: string
+                  description: Name of the contact person.
+                  maxLength: 255
+                  example: John Doe
+                email: 
+                  type: string
+                  description: Email of the contact person.
+                  maxLength: 255
+                  example: john@paper.id
+                phone: 
+                  type: string
+                  description: Phone number of the contact person in E.164 international format.
+                  maxLength: 255
+                  example: '+6289123456789'
+                position:
+                  type: string
+                  description: Position of the contact person within the company/organization
+                  maxLength: 255
+                  example: product owner
+      warehouse_sender:
+        type: string
+        example: Main Warehouse
+      document_referencing:
+        type: object
+        properties: 
+          purchase_order_number:
+            type: string
+            example: PO/VI/0001
+          sales_invoice_number:
+            type: string
+            example: SI/VI/0001
+      items:
+        type: array
+        description: This object contains array data of items
+        items:
+          type: object
+          required: 
+            - name
+            - description
+            - quantity
+            - price
+          properties: 
+            name: 
+              type: string
+              example: AC LG
+              description: Name of item.
+              maxLength: 255
+            code: 
+              type: string
+              example: SKU0001
+              description: Product code of item that will reference the Product master list in Paper.id. If not filled, it will treated as freetype product
+              maxLength: 255
+            description: 
+              type: string
+              example: Ductless, Mini-Split Air Conditioner.
+              description: Description of item.
+              maxLength: 255
+            quantity: 
+              type: number
+              example: 5
+              description: Quantity of item.
+            uom: 
+              type: string
+              example: pcs
+              description: |
+                Code for UOM.
+                Note: should be registered in Paper.id system
+              maxLength: 255
+      delivery_infomation: 
+        type: object
+        properties: 
+          delivery_date: 
+            type: string
+            example: 2022-07-02
+          delivery_method:
+            type: string
+            example: PO/VI/0001
+          vehicle_license_plate: 
+            type: string
+            example: SI/VI/0001
+          airway_bill: 
+            type: string
+            example: 00375890
+          driver_name: 
+            type: string
+            example: Joe Bryan
+          goods_weight: 
+            type: string
+            example: 3000 kg, gross
+          goods_dimension: 
+            type: string
+            example: 20x2x4 meter
+      delivery_address:
+        type: object
+        properties: 
+          address: 
+            type: string
+            example: Jl. Sunter Garden Raya 5D
+          city: 
+            type: string
+            example: Jakarta Utara
+          state: 
+            type: string
+            example: DKI Jakarta
+          country: 
+            type: string
+            example: Indonesia
+          zip_code: 
+            type: string
+            example: 14350
+          location: 
+            type: object
+            properties: 
+              latitude: 
+                type: integer
+                example: 6.136912345
+              longitude: 
+                type: integer
+                example: 106.8487123545
+      deliver_contact: 
+        type: object
+        properties: 
+          name: 
+            type: string
+            example: John
+          email: 
+            type: string
+            example: john.doe@paper.id
+          phone: 
+            type: string
+            example: 6282117679137
+      sender_signature_text_header: 
+        type: string
+        example: 29 Jun, 2022
+      sender_signature_text_footer:
+        type: string
+        example: Admin Gudang
+      receiver_signature_text_header: 
+        type: string
+        example: Penerima
+      receiver_signature_text_footer: 
+        type: string
+        example: ''
+      additional_info: 
+        type: object
+        properties: 
+          keterangan: 
+            type: string
+            example: Mohon melakukan penandatanganan surat ini sebagai bukti bahwa pengiriman telah dilakukan
+          informasi_tambahan: 
+            type: string
+            example: Sertakan dokumen penerimaan barang sebagai bukti barang telah diterima.
+  meta: 
+    type: object
+    properties: 
+      created_at: 
+        type: string
+        example: 2022-09-31T23:59:59+07:00
+      modified_at: 
+        type: string
+        example: 2022-09-31T23:59:59+07:00

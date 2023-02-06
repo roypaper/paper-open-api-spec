@@ -1,0 +1,182 @@
+type: object
+required:
+  - delivery_order_date
+  - delivery_order_number
+  - customer
+  - items
+properties:
+  delivery_order_date:
+    type: string
+    description: Date of Purchase Order document in format YYYY-MM-DD
+    example: '2022-06-29'
+  delivery_order_number:
+    type: string
+    description: Document Number of the Delivery Order.
+    example: 'DO/VI/0001'
+  customer:
+    type: object
+    description: This object contains data of the partner, the receiver of this order.
+    required: 
+      - id
+      - company_name
+      - company_email
+      - company_phone
+      - company_address
+    properties: 
+      id:
+        type: string
+        example: 'C.00001'
+        maxLength: 255
+      company_name:
+        type: string
+        example: PT Pakar Digital Global
+      company_email:
+        type: string
+        example: pdg.paper@paper.id
+      company_phone:
+        type: string
+        example: '6289123456789'
+      company_address:
+        type: string
+        example: 'Jl. Sunter Garden Raya No.5D, RT.6/RW.12, Sunter Agung, Kec. Tj. Priok, Kota Jkt Utara, Daerah Khusus Ibukota Jakarta 14350'
+      contact:
+        type: array
+        description: Contact people of the partner
+        items:
+          type: object
+          required: 
+            -  name
+          properties: 
+            name:
+              type: string
+              example: John Doe
+            email:
+              type: string
+              example: john@paper.id
+            phone: 
+              type: string
+              example: '6289123456789'
+            position:
+              type: string
+              example: Product Owner
+  additional_info:
+    type: object
+    description: To add custom field / other document as reference
+    properties: 
+      po_number:
+        type: string
+        example: PO/2022/0001  
+      so_number:
+        type: string
+        example: SO/2022/0001
+      receiver_name: 
+        type: string
+        example: PT ABC Makmur
+      receiver_pic:
+        type: string
+        example: Angelica
+      receiver_address:
+        type: string
+        example: Jl Sunter Garden Raya no 5D
+      receiver_phone:
+        type: string
+        example: '02128192812'
+  items:
+    type: array
+    items:
+      type: object
+      required: 
+        - name
+        - description
+        - quantity
+        - uom_code
+      properties: 
+        name:
+          type: string
+        code:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: string
+        uom_code:
+          type: string
+    example: 
+      - name: AC LG
+        code: SKU0001
+        description: Ductless, Mini-Split Air Conditioner
+        quantity: '1'
+        uom_code: pcs
+      - name: Lemari Es LG
+        code: SKU0002
+        description: Smart Inverter Compressor Multi Air Flow
+        quantity: '5'
+        uom_code: pcs
+  delivery_information:
+    type: object
+    properties: 
+      delivery_date:
+        type: string
+        example: '2022-07-02'
+      delivery_method:
+        type: string
+        example: Truck
+      vehicle_license_plate:
+        type: string
+        example: B2758TOK
+      airway_bill:
+        type: string
+        example: 00375890
+      driver_name:
+        type: string
+        example: Joe Bryan
+      goods_weight:
+        type: string
+        example: 3000 kg, gross
+      goods_dimension:
+        type: string
+        example: 20x2x4 meter
+  delivery_address:
+    type: object
+    properties: 
+      address:
+        type: string
+        example: Jl. Sunter Garden Raya 5D
+      city:
+        type: string
+        example: Jakarta Utara
+      state:
+        type: string
+        example: DKI Jakarta
+      country:
+        type: string
+        example: Indonesia
+      zip_code:
+        type: string
+        example: '14350'
+      location:
+        type: object
+        properties: 
+          latitude:
+            type: string
+            example: 6.136912345
+          longtitude:
+            type: string
+            example: 106.8487123545
+  sender_signature_text_header:
+    type: string
+  sender_signature_text_footer:
+    type: string
+  receiver_signature_text_header:
+    type: string
+    example: 30-12-2022
+  receiver_signature_text_footer:
+    type: string
+    example: ''
+  send:
+    type: object
+    properties: 
+      email:
+        type: boolean
+        example: true
+

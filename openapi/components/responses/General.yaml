@@ -1,0 +1,16 @@
+type: object 
+properties:
+  status_code:
+    type: integer
+  response_code:
+    type: string
+    example: '30007'
+  response_desc:
+    properties:
+      en:
+        type: string
+        example: "message in english"
+      id:
+        type: string
+        example: "pesan bahasa indonesia"
+    type: object

@@ -1,0 +1,149 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties:
+      number:
+        type: string
+        description: Number of document invoices. You can input your Invoice ID here as reference and there's  a duplicate constraint
+        example: INV/API/2021/00001
+      invoice_date: 
+        type: string
+        description: Date of document in format YYYY-MM-DD
+        example: 2022-09-01
+      due_date: 
+        type: string
+        description: Due date of Invoice in format YYYY-MM-DD
+        example: 2022-09-01
+      status:
+        type: object
+        properties: 
+          payment_status: 
+            type: string
+            example: unpaid
+          acceptance_status:
+            type: string
+            example: accepted
+      payment_link:
+        type: string
+        example: get.paper.id/12jsa4f
+      pdf_link:
+        type: string
+        example: pdf.paper.id/45768J
+      customer:
+        type: object
+        properties: 
+          id:
+            type: string
+            example: C.00001
+          company_name:
+            type: string
+            example: John Doe
+          company_email:
+            type: string
+            description: Either email or phone has to be filled
+            example: john@acmecorp.com
+          company_phone:
+            type: string
+            description: E.164 international format or `+[Country Code]...`
+            example: +6289123456789
+          href:
+            type: string
+            example: /partners/89e7bf3f-0d81-408c-ad1a-0c5fe490f5db
+          contact:
+            type: array
+            items: 
+              type: object
+              properties: 
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: john@paper.id
+                phone:
+                  type: string
+                  example: +6289123456789
+      items: 
+        type: array
+        items: 
+          type: object
+          properties: 
+            name: 
+              type: string
+              example: item 01
+            code: 
+              type: string
+              example: P.0001
+            description: 
+              type: string
+              example: color is black
+            quantity: 
+              type: number
+              example: 2
+            uom: 
+              type: string
+              description: should be registered in Paper.id system
+              example: pcs
+            discount: 
+              type: number
+              description: Converted to percentage, e.g. 20 will be calculated as 20%
+              example: 20
+            price: 
+              type: number
+              example: 10000
+            tax: 
+              type: number
+              description: Converted to percentage, e.g. 10 will be calculated as 10%
+              example: 10
+            product_href:
+              type: string
+              example: /products/82e69cd1-e66a-4a57-9862-2e4396b1c3ca
+            additional_info: 
+              type: object
+              properties: 
+                batch_no: 
+                  type: string
+                  example: MFG0580
+                discount_tier: 
+                  type: string
+                  example: 1
+      additional_fee:
+        type: object
+        properties: 
+          delivery_fee:
+            type: number
+            example: 2000
+      total: 
+        type: number
+        example: 17600
+      signature_text_header: 
+        type: string
+        example: 1 Mar 2021
+      signature_text_footer: 
+        type: string
+        example: Jane
+      terms_condition:
+        type: string
+        example: We receive payment no later than 5 days after the bill is received      
+      notes: 
+        type: string
+        example: Invoice include service fee
+      created_at:
+        type: string 
+        example: 2022-09-15T23:11:37+07:00
+      modified_at:
+        type: string
+        example: 2022-09-22T23:20:51+07:00

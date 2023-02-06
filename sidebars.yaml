@@ -1,0 +1,30 @@
+- page: developer-portal/introduction.md
+- page: developer-portal/authentication.md
+- page: developer-portal/environment.md
+- page: developer-portal/callback.md
+- page: developer-portal/webhook.md
+- page: developer-portal/setup.md
+
+- group: APIs
+  expanded: true
+  pages:
+
+    - page: openapi/user.yaml
+      expanded: false
+    
+    - page: openapi/partners.yaml
+      expanded: false
+    
+    - group: Document Exchange
+      page: developer-portal/openapi-document-exchange.md
+      expanded: false
+      pages:
+
+        - page: openapi/sales-invoice.yaml
+          expanded: false
+
+        - page: openapi/purchase-orders.yaml
+          expanded: false
+
+        - page: openapi/delivery-order.yaml
+          expanded: false

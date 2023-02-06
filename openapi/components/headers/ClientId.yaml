@@ -1,0 +1,5 @@
+name: client_id
+required: true
+description: date in UTC when token expires
+schema:
+  type: string

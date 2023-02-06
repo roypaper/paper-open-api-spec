@@ -1,0 +1,158 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+        example: 0ab39a6f-b549-47e6-8391-6120dbf8587f
+      number:
+        type: string
+        description: Number of document invoices. You can input your Invoice ID here as reference and there's  a duplicate constraint
+        example: INV/API/2021/00001
+      invoice_date: 
+        type: string
+        description: Date of document in format YYYY-MM-DD
+        example: 2022-09-01
+      due_date: 
+        type: string
+        description: Due date of Invoice in format YYYY-MM-DD
+        example: 2022-09-01
+      status:
+        type: object
+        properties: 
+          payment_status: 
+            type: string
+            example: unpaid
+          acceptance_status:
+            type: string
+            example: accepted
+      partner:
+        type: object
+        properties: 
+          number:
+            type: string
+            example: S.00002
+          company_name:
+            type: string
+            example: PT Pakar Finansial Global
+          company_email:
+            type: string
+            description: Either email or phone has to be filled
+            example: pfg.paper@paper.id
+          company_phone:
+            type: string
+            description: E.164 international format or `+[Country Code]...`
+            example: +6289123456789
+          contact:
+            type: array
+            items: 
+              type: object
+              properties: 
+                name:
+                  type: string
+                  example: John Doe
+                email:
+                  type: string
+                  example: john@paper.id
+                phone:
+                  type: string
+                  example: +6289123456789
+      items: 
+        type: array
+        items: 
+          type: object
+          properties: 
+            name: 
+              type: string
+            code: 
+              type: string
+            description: 
+              type: string
+            quantity: 
+              type: number
+            uom: 
+              type: string
+              description: should be registered in Paper.id system
+            discount: 
+              type: number
+              description: Converted to percentage, e.g. 20 will be calculated as 20%
+            price: 
+              type: number
+            tax: 
+              type: number
+              description: Converted to percentage, e.g. 10 will be calculated as 10%
+            product_href:
+              type: string
+            additional_info: 
+              type: object
+              properties: 
+                batch_no: 
+                  type: string
+                discount_tier: 
+                  type: string
+        example: 
+          - name: AC LG
+            code: SKU0001
+            description: Ductless, Mini-Split Air Conditioner
+            quantity: 1
+            uom: pcs
+            discount: 0 
+            price: 1000000
+            tax: 10
+            additional_info:
+              - discount_tier: 1
+                batch_no: MFG0580
+          - name: Lemari Es LG
+            code: SKU0002
+            description: Smart Inverter Compressor Multi Air Flow
+            quantity: 5
+            uom: pcs
+            discount: 10
+            price: 1200000
+            tax: 10
+      additional_fee:
+        type: object
+        properties: 
+          delivery_fee:
+            type: number
+            example: 2000
+      total: 
+        type: number
+        example: 17600
+      signature_text_header: 
+        type: string
+        example: 1 Mar 2021
+      signature_text_footer: 
+        type: string
+        example: Jane
+      notes: 
+        type: string
+        example: Invoice include service fee
+      additional_info: 
+        type: object
+        properties: 
+          cabang: 
+            type: string
+            example: Sunter
+          project: 
+            type: string
+            example: Stadium GBK
+      created_at:
+        type: string 
+        example: 2022-09-15T23:11:37+07:00
+      modified_at:
+        type: string
+        example: 2022-09-22T23:20:51+07:00

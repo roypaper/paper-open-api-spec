@@ -1,0 +1,4 @@
+description: User supplied username
+type: string
+minLength: 4
+example: John78

@@ -1,0 +1,44 @@
+type: object 
+properties:
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      date: 
+        type: string
+        example: 2021-09-29
+      status: 
+        type: string
+        example: Void
+      updated_at:
+        type: string
+        example: 2021-09-29T09:30:54.348883233+07:00
+  links: 
+    type: array
+    items: 
+      type: object
+      properties: 
+        ref: 
+          type: string
+          example: self
+        href: 
+          type: string
+          example: /sales-invoices/pdf/5ab39a6f-a549-47e6-8391-6120daf8587f
+        type: 
+          type: string
+          example: GET
+        kind: 
+          type: string
+          example: file
+      

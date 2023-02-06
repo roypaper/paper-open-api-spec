@@ -1,0 +1,106 @@
+get:
+    tags:
+      - Partner
+    summary: Get Partners List
+    description: This can only be done by the logged in user.
+    operationId: getPartnersAll
+    parameters:
+      - name: limit
+        in: query
+        description: Limit Output Response
+        schema:
+          type: number
+      - name: offset
+        in: query
+        description: Select Batch of Response 
+        schema:
+          type: number
+      - name: type 
+        in: query
+        description: Filter Partners by Type 
+        schema:
+          type: number
+      - name: company_email
+        in: query
+        description: Filter Purchase Order by Company Email 
+        schema:
+          type: string
+      - name: company_phone
+        in: query
+        description: Filter Purchase Order by Company Phone 
+        schema:
+          type: string
+      - name: company_mobile
+        in: query
+        description: Filter Purchase Order by Company Mobile  
+        schema:
+          type: string
+      - name: company_number
+        in: query
+        description: Filter Purchase Order by Company Number 
+        schema:
+          type: string
+      - name: company_name
+        in: query
+        description: Filter Purchase Order by Company Name
+        schema:
+          type: string
+    security:
+      - client_id: []
+      - client_secret: []
+      - company_id: []
+    responses:
+      '200':
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../../components/responses/Partners/GetAllPartner.yaml
+      '400':
+        description: Bad Request
+        content:
+          application/json:
+            schema:
+              $ref: ../../components/responses/General.yaml
+            example: 
+              status_code: 400
+              response_code: "80001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '403':
+        description: Forbidden
+        content:
+          application/json:
+            schema:
+              $ref: ../../components/responses/General.yaml
+            example: 
+              status_code: 403
+              response_code: "70001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '404':
+        description: Not Found
+        content:
+          application/json:
+            schema:
+              $ref: ../../components/responses/General.yaml
+            example: 
+              status_code: 404
+              response_code: "60001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"
+      '500':
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              $ref: ../../components/responses/General.yaml
+            example: 
+              status_code: 500
+              response_code: "50001"
+              response_desc:
+                en: "message in english"
+                id: "pesan bahasa indonesia"

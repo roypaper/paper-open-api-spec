@@ -1,0 +1,91 @@
+post:
+  tags:
+    - Delivery Order
+  summary: Create and Send Delivery Order
+  description: |
+    You need to hit this API with given parameters to create a delivery order document in Paper.id.
+    Once an Order is created, it automatically generates a PDF link of the document.
+
+
+    **Partner Referencing**
+
+
+    **IMPORTANT**: To properly track transactions between you and your Partner (Customer, Supplier, or both) properly, please ensure the right Partner_id is inserted. This will be critical for tracking document history.
+
+
+    Use id as the reference to your existing Partner. If no Partner with the id exists, a new one will be created when you are calling the API. The creation of a new id is made upon the insertion of email, address, or phone number.
+
+
+    For email and phone number, it could be optional but one of them needs to be filled in as identity. On top of that, the notification will be also forwarded to the registered email or phone number.
+
+
+    **Order Sending**
+
+    **IMPORTANT**: You can assign the sending channel for every order by defining the value of the key in the send object as boolean true or false. If send object key value is true then order will be sent via selected sending method and vice versa. If you just want to create order without sending, you can put false value in all key or put an empty send object.
+  operationId: createSendDeliveryOrder
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ..\..\..\components\requestBodies\delivery-order\CreateAndSendDeliveryOrder.yaml
+    description: Create and Send Sales Invoice
+    required: true
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\..\components\responses\delivery-order\CreateAndSendDeliveryOrder.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

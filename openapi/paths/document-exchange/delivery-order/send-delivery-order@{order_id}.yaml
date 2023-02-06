@@ -1,0 +1,80 @@
+post:
+  tags:
+    - Delivery Order
+  summary: Send Delivery Order
+  description: >
+    You need to hit this API to send selected order document to your partner, using our available channel (email, whatsapp, sms). The message will be delivered by Paper.id on behalf of your company
+  operationId: sendOrderDeliveryOrder
+  parameters:
+    - name: order_id
+      in: path
+      description: The id that needs to be fetched
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ..\..\..\components\requestBodies\delivery-order\send-delivery-order.yaml
+    description: Create and Send Sales Invoice
+    required: true
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ..\..\..\components\responses\delivery-order\send-delivery-order.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

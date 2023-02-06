@@ -1,0 +1,77 @@
+post:
+  tags:
+    - Purchase Order
+  summary: Create and Send Purchase Order
+  description: |
+    Once an Order is created, it automatically generates a PDF link of the document.
+
+    **IMPORTANT** - Order Sending
+    
+    You can assign sending channel for every order by defining the value of key in send object as boolean true or false. If send object key value is true then order will be sent via selected sending method and vice versa. If you just want to create order without sending, you can put false value in all key or put an empty send object.
+  operationId: createPurchaseOrder
+  security:
+    - client_id: []
+    - client_secret: []
+    - company_id: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/requestBodies/CreateOrUpdatePurchaseOrder.yaml
+    description: Created purchase order object
+    required: true
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/PurchaseOrder/CreateOrUpdatePurchaseOrder.yaml
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 400
+            response_code: "80001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 403
+            response_code: "70001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 404
+            response_code: "60001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../components/responses/General.yaml
+          example: 
+            status_code: 500
+            response_code: "50001"
+            response_desc:
+              en: "message in english"
+              id: "pesan bahasa indonesia"

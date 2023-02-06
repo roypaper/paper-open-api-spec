@@ -1,0 +1,188 @@
+type: object
+required: 
+- invoice_date
+- due_date
+- number
+- partner
+- items
+- total
+properties:
+  invoice_date:
+    type: string
+    description: Date of document in format YYYY-MM-DD
+    maxLength: 255
+  due_date:
+    type: string
+    description: Due date of Invoice in format YYYY-MM-DD
+    maxLength: 255
+  number:
+    type: number
+    description: Number of document invoices. You can input your Invoice ID here as reference and there's  a duplicate constraint
+    maxLength: 255
+  partner:
+    type: object
+    description: This object contains data of the partner
+    required:
+      - id
+      - company_email
+      - company_name
+      - company_phone
+    properties:
+      id: 
+        type: string
+        example: S.00001
+        description: Identifier of partner. You can input your own Partner reference here but there's duplicate constraint.
+        maxLength: 255
+      company_name: 
+        type: string
+        example: PT Pakar Digital Global
+        description: Company Name of customer
+        maxLength: 255
+      company_email: 
+        type: string
+        example: pdg.paper@paper.id
+        description: Company Email of customer
+        maxLength: 255
+      company_phone: 
+        type: string
+        example: '+622119209102'
+        description: Company Phone Number of customer in E.164 international format
+        maxLength: 255
+      contact: 
+        type: array
+        description: Contact people of the supplier.
+        items: 
+          type: object
+          required:
+            - name
+          properties:
+            name: 
+              type: string
+              example: John Doe
+              description: Name of the contact person.
+              maxLength: 255
+            email: 
+              type: string
+              example: john@paper.id
+              description: Email of the contact person.
+              maxLength: 255
+            phone: 
+              type: string
+              example: '+6289123456789'
+              description: Phone number of the contact person in E.164 international format.
+              maxLength: 255
+            type: 
+              type: string
+              example: Product owner
+              description: It is used to identify the type of partner. It can be filled with “Customer” or “Both”. If null, then the default type will be “Both”. For this type of document, partner type can’t be filled as  “Supplier”
+              maxLength: 255
+  items:
+    type: array
+    description: This object contains array data of items
+    items:
+      type: object
+      required: 
+        - name
+        - description
+        - quantity
+        - price
+      properties: 
+        name: 
+          type: string
+          example: AC LG
+          description: Name of item.
+          maxLength: 255
+        code: 
+          type: string
+          example: SKU0001
+          description: Product code of item that will reference the Product master list in Paper.id. If not filled, it will treated as freetype product
+          maxLength: 255
+        description: 
+          type: string
+          example: Ductless, Mini-Split Air Conditioner.
+          description: Description of item.
+          maxLength: 255
+        quantity: 
+          type: number
+          example: 1
+          description: Quantity of item.
+        uom: 
+          type: string
+          example: pcs
+          description: |
+            Code for UOM.
+            Note: should be registered in Paper.id system
+          maxLength: 255
+        discount: 
+          type: number
+          example: 0
+          description: Discount of item that will be converted to percentage, e.g. 20 will be calculated as 20% discount.
+        price: 
+          type: number
+          description: Price of item.
+          example: 1000000
+        tax: 
+          type: number
+          description: This object contains tax information for the item.
+          example: 10
+        additional_info:
+          type: object
+          description: To add custom fields for info to your fit your business case in the items level
+  additional_fee:
+    type: object
+    description: The amount of additional fee. The name can be configured as requested and will treat as ‘other cost’
+    properties: 
+      delivery_fee:
+        type: number
+        example: 20000
+        description: The amount of delivery fee that might occur on goods delivery process.
+  total: 
+    type: number
+    example: 7060000
+    description: Total amount of the invoice, up to 2 decimal point.
+    maxLength: 255
+  document_referencing:
+    type: string
+    description: Additional information regarding the relation of the order with other documents (e.g. Purchase Order, etc)
+    maxLength: 255
+  signature_text_header:
+    type: string
+    description: Signature text header of document
+    maxLength: 255
+  signature_text_footer:
+    type: string
+    description: Signature text footer of document
+    maxLength: 255
+  notes: 
+    type: string
+    example: The order is valid if two parties had agreed
+    description: Notes of the order.
+    maxLength: 255
+  send:
+    type: object
+    description: Send method of the document
+    properties: 
+      email: 
+        type: boolean
+        example: true
+        description: Sending email method.
+      whatsapp: 
+        type: boolean
+        example: true
+        description: Sending whatsapp method.
+      sms: 
+        type: boolean
+        example: true
+        description: Sending sms method.
+  additional_info: 
+    type: object
+    description: Additional information or custom fields that fit your business case.
+    properties: 
+      project: 
+        type: string
+        example: Stadium GBK
+        maxLength: 255
+      branch: 
+        type: string
+        example: Sunter
+        maxLength: 255

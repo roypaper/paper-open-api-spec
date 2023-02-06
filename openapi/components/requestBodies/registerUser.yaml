@@ -1,0 +1,9 @@
+type: object
+required:
+  - email
+properties:
+  email:
+    type: string
+    description: Name of user client email
+    maxLength: 255
+    example: john.doe@paper.id

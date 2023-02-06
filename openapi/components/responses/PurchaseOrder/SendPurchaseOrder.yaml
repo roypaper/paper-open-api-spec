@@ -1,0 +1,47 @@
+type: object 
+properties:
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      email: 
+        properties:
+          to:
+            type: string
+            example: yourcompanyemail@paper.id
+          cc:
+            type: string
+            example: partnercompanyemail@paper.id
+      whatsapp:
+        type: array
+        items: 
+          type: object
+          properties: 
+            number: 
+              type: string
+          example:
+            - number: '+6285157815521'
+            - number: '+62813456789'
+      sms:
+        type: array
+        items: 
+          type: object
+          properties: 
+            country_code: 
+              type: string
+            number: 
+              type: string
+          example:
+            - number: '+6285157815521'
+            - number: '+62813456789'

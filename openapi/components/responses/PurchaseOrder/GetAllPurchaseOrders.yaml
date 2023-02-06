@@ -1,0 +1,79 @@
+type: object
+properties: 
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            number:
+              type: string
+            links:
+              type: array
+              items:
+                type: object
+                properties:
+                  ref: 
+                    type: "string"
+                  href: 
+                    type: string
+                  type: 
+                    type: string
+                  kind: 
+                    type: string   
+        example: 
+          - id: 2b8544b2-2b85-41ba-915c-4f1f97a5b5c2
+            number: RAIDENT/SEPT/PO/23
+            links:
+              - ref: self
+                href: /api/v1/purchase-orders/2b8544b2-2b85-41ba-915c-4f1f97a5b5c2
+                type: GET 
+                kind: item
+              - ref: self
+                href: /api/v1/purchase-orders/send/2b8544b2-2b85-41ba-915c-4f1f97a5b5c2
+                type: POST 
+                kind: action 
+              - ref: self
+                href: /api/v1/purchase-orders/pdf/2b8544b2-2b85-41ba-915c-4f1f97a5b5c2
+                type: GET  
+                kind: file
+          - id: 02a0363c-3cb2-4d6b-90b2-3783195b256d
+            number: RAIDENT/SEPT/PO/21
+            links:
+              - ref: self
+                href: /api/v1/purchase-orders/02a0363c-3cb2-4d6b-90b2-3783195b256d
+                type: GET 
+                kind: item
+              - ref: self
+                href: /api/v1/purchase-orders/send/02a0363c-3cb2-4d6b-90b2-3783195b256d
+                type: POST 
+                kind: action 
+              - ref: self
+                href: /api/v1/purchase-orders/pdf/02a0363c-3cb2-4d6b-90b2-3783195b256d
+                type: GET  
+                kind: file
+  limit: 
+    type: integer
+    example: 25
+  offset:
+    type: integer
+    example: 0
+  total records:
+    type: integer
+    example: 2

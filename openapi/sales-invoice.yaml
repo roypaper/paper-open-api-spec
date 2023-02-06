@@ -1,0 +1,45 @@
+openapi: 3.0.2
+info:
+  version: 1.0.0
+  title: PAPER ID - OPEN API - Tools V1
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://fintech.id/storage/files/shares/logo/logofi2/paperid.png'
+externalDocs:
+  description: Please registry here first if you don't have access
+  url: 'https://paper.id/webappv1/#/login?entry_point=landing-page'
+tags:
+  - name: Sales Invoice
+    description: 
+      $ref: '../developer-portal/openapi-sales-invoice.md'
+servers:
+  - url: 'https://open-api.devel.paper.id/api/v1'
+paths:
+  '/sales-invoices/all':
+    $ref: paths/document-exchange/sales-invoice/sales_invoice_all.yaml
+  '/sales-invoices/{invoice_id}/update':
+    $ref: paths/document-exchange/sales-invoice/sales_invoice_update.yaml
+  '/sales-invoices/{invoice_id}':
+    $ref: paths/document-exchange/sales-invoice/sales_invoice@{invoice_id}.yaml
+  '/sales-invoices':
+    $ref: paths/document-exchange/sales-invoice/sales_invoice_create.yaml
+  # '/sales-invoices/{invoice_data_id}/cancel':
+  #   $ref: paths/sales-invoice/sales_invoice_cancel.yaml
+  '/sales-invoices/send-all/{invoice_id}':
+    $ref: paths/document-exchange/sales-invoice/sales_invoice_send.yaml
+components:
+  securitySchemes:
+    client_id:
+      type: apiKey
+      in: header
+      name: client_id
+    client_secret:
+      type: apiKey
+      in: header
+      name: client_secret
+    company_id:
+      type: apiKey
+      in: header
+      name: company_id

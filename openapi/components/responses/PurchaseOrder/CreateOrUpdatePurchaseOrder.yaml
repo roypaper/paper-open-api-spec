@@ -1,0 +1,56 @@
+type: object 
+properties:
+  response_code:
+    type: string
+    example: 0000
+  response_desc:
+    type: object
+    properties:
+      id:
+        type: string
+        example: sukses
+      en:
+        type: string
+        example: success
+  data:
+    type: object
+    properties: 
+      id: 
+        type: string
+        example: 7ab39a6f-a549-47e6-8391-6120daf8587f
+      number: 
+        type: string
+        example: PO/API/2021/00001
+      expiry_time: 
+        type: string
+        example: '18-07-2022T 23:59:59+07:00'
+      links: 
+        type: array
+        items: 
+          type: object
+          properties: 
+            ref: 
+              type: "string"
+            href: 
+              type: string
+            type: 
+              type: string
+            kind: 
+              type: string    
+        example: 
+          - ref: self
+            href: /purchase-orders/7ab39a6f-a549-47e6-8391-6120daf8587f
+            type: GET 
+            kind: item
+          - ref: self
+            href: /purchase-orders/send/7ab39a6f-a549-47e6-8391-6120daf8587f
+            type: POST 
+            kind: action 
+          - ref: self
+            href: /purchase-orders/pdf/7ab39a6f-a549-47e6-8391-6120daf8587f
+            type: GET  
+            kind: file 
+          - ref: purchase_orders
+            href: /purchase-orders/
+            type: GET  
+            kind: collections
