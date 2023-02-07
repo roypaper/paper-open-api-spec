@@ -31,16 +31,16 @@ properties:
         type: string
         example: doe
       login_attempt:
-        type: null
+        type: string
         example: ''
       login_limit_timestamp:
-        type: null
+        type: string
         example: ''
       name:
         type: string
         example: john
       paper_chain_popup:
-        type: null
+        type: string
         example: ''
       password:
         type: string
@@ -55,16 +55,16 @@ properties:
         type: string
         example: ''
       plain_password: 
-        type: null
+        type: string
         example: ''
       realm:
-        type: null
+        type: string
         example: ''
       registered_by:
         type: string
         example: alfiansyahad2
       remember_token:
-        type: null
+        type: string
         example: ''
       updated_at:
         type: string
