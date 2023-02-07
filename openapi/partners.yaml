@@ -19,6 +19,8 @@ tags:
 paths:
   '/partners/all':
     $ref: paths/partners/partners_all.yaml
+  '/partners/create':
+    $ref: paths/partners/partners_create.yaml
 components:
   securitySchemes:
     client_id:
