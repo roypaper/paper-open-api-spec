@@ -47,7 +47,7 @@ paths:
   '/purchase-orders/send-all/{order_id}':
     $ref: paths/document-exchange/purchase-order/purchase_order@{order_id}.yaml
   # '/purchase-orders/purchase-order/cancel/{order_id}':
-  #   $ref: paths\purchase-order\purchase_order_cancel@{order_id}.yaml
+  #   $ref: paths/purchase-order/purchase_order_cancel@{order_id}.yaml
   
   # sales invoice
   '/sales-invoices/all':
@@ -67,13 +67,13 @@ paths:
   '/delivery-orders':
     $ref: paths/document-exchange/delivery-order/create-send-delivery-order.yaml
   '/delivery-orders/send-all/{order_id}':
-    $ref: paths\document-exchange\delivery-order\send-delivery-order@{order_id}.yaml
+    $ref: paths/document-exchange/delivery-order/send-delivery-order@{order_id}.yaml
   '/delivery-orders/{order_id}':
     $ref: paths/document-exchange/delivery-order/edit-delivery-order@{order_id}.yaml
   '/delivery-orders/{order_id} ':
-    $ref: paths\document-exchange\delivery-order\get-delivery-order@{order_id}.yaml
+    $ref: paths/document-exchange/delivery-order/get-delivery-order@{order_id}.yaml
   '/delivery-orders/all':
-    $ref: paths\document-exchange\delivery-order\get-list-delivery-order.yaml
+    $ref: paths/document-exchange/delivery-order/get-list-delivery-order.yaml
 components:
   securitySchemes:
     client_id:

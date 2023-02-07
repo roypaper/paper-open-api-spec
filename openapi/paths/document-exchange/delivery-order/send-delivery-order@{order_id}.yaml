@@ -16,7 +16,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: ..\..\..\components\requestBodies\delivery-order\send-delivery-order.yaml
+          $ref: ../../../components/requestBodies/delivery-order/send-delivery-order.yaml
     description: Create and Send Sales Invoice
     required: true
   security:
@@ -29,7 +29,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: ..\..\..\components\responses\delivery-order\send-delivery-order.yaml
+            $ref: ../../../components/responses/delivery-order/send-delivery-order.yaml
     '400':
       description: Bad Request
       content:

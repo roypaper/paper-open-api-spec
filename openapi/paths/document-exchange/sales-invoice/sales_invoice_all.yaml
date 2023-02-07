@@ -55,7 +55,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ..\..\..\components\responses\SalesInvoice\GetSalesInvoiceList.yaml
+            $ref: ../../../components/responses/SalesInvoice/GetSalesInvoiceList.yaml
     '400':
       description: Bad Request
       content:

@@ -37,7 +37,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ..\..\..\components\responses\delivery-order\get-delivery-order.yaml
+            $ref: ../../../components/responses/delivery-order/get-delivery-order.yaml
     '400':
       description: Bad Request
       content:

@@ -10,7 +10,7 @@ post:
       content: 
         application/json:
           schema: 
-            $ref: ..\..\components\requestBodies\registerUser.yaml
+            $ref: ../../components/requestBodies/registerUser.yaml
       description: Register user
       required: true
     responses:
